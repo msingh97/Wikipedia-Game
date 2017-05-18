@@ -1,4 +1,4 @@
-from Queue import *
+from Structures import *
 import wikipedia
 
 def solve_wikipedia_game(article1, article2):
