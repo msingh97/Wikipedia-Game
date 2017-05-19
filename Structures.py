@@ -74,13 +74,24 @@ class Queue:
         return len(self.list)
 
 class Tree:
-    """A very simple tree class for BFS."""
+    """A very simple tree class for BFS. Assumes all items will be Wikipedia page types."""
 
-    def __init__(self, x, *children):
+    def __init__(self, x, parent=None):
         self.item = x
         self.children = []
+        self.parent = parent
+        self.visited = False
+
+    def add_children(self, *children):
         for i in children:
-            self.children.append(Tree(i))
+            assert isinstance(i, Tree)
+            self.children.append(Tree(i, self))
+
+    def links(self):
+        return self.item.links
+
+    def title(self):
+        return self.item.title
 
     def num_children(self):
         return len(self.children)
