@@ -23,7 +23,7 @@ def is_valid_article(title):
         return False
 
 
-def solve_wikipedia_game(article1, article2, max_operations=1000):
+def solve_wikipedia_game(article1, article2):
     """Wikipedia solver funtion. Uses breadth-first search on the links in an article."""
     assert isinstance(article1, str) and isinstance(article2, str)
     assert is_valid_article(article2)
